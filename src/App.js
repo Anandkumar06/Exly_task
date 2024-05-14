@@ -1,25 +1,33 @@
-import logo from './logo.svg';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/js/bootstrap.bundle"
 import './App.css';
+import {Routes, Route, BrowserRouter} from 'react-router-dom';
+import Dashboard from './components/Dashboard';
+import MyOfferings from './components/MyOfferings';
+import SalesMarketing from './components/SalesMarketing';
+import Transactions from './components/Transactions';
+import MyBookings from './components/MyBookings';
+import Contact from './components/Contact';
+
 
 function App() {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <> 
+     <BrowserRouter>
+      <Routes>
+        <Route path="/" exact element={<Dashboard />}></Route>
+        <Route path="/myofferings" exact element={<MyOfferings />}></Route>
+        <Route path="/salesmarketing" exact element={<SalesMarketing />}></Route>
+        <Route path="/transaction" exact element={<Transactions />}></Route>
+        <Route path="/mybookings" exact element={<MyBookings />}></Route>
+        <Route path="/contact" exact element={<Contact />}></Route>
+      </Routes>
+     </BrowserRouter>
+   </>
+
+  )
 }
 
 export default App;
